@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>map.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bababa;}
+.s3 { color: #a5c261;}
+.s4 { color: #a9b7c6;}
+.s5 { color: #808080;}
+.s6 { color: #6897bb;}
+.s7 { color: #cc7832;}
+.s8 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+map.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s4">My Map</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.css&quot;</span>
+          <span class="s2">integrity</span><span class="s3">=&quot;sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==&quot;</span>
+          <span class="s2">crossorigin</span><span class="s3">=&quot;&quot;</span><span class="s0">/&gt;</span>
+    <span class="s5">&lt;!-- Make sure you put this AFTER Leaflet's CSS --&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&quot;</span>
+            <span class="s2">integrity</span><span class="s3">=&quot;sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==&quot;</span>
+            <span class="s2">crossorigin</span><span class="s3">=&quot;&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;style&gt;</span>
+        <span class="s0">#my-map </span><span class="s4">{</span><span class="s2">height</span><span class="s4">: </span><span class="s6">100</span><span class="s3">vh</span><span class="s7">;</span><span class="s4">}</span>
+    <span class="s0">&lt;/style&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;markers.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+<span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;my-map&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+<span class="s0">&lt;script&gt;</span>
+    <span class="s7">var </span><span class="s1">mymap = L.map(</span><span class="s8">'my-map'</span><span class="s4">).setView([</span><span class="s6">41.7766913</span><span class="s7">,</span><span class="s6">44.7827444</span><span class="s7">,</span><span class="s6">6</span><span class="s4">]</span><span class="s7">, </span><span class="s6">8</span><span class="s4">)</span><span class="s7">;</span>
+    <span class="s1">L.tileLayer(</span><span class="s8">'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'</span><span class="s7">, </span><span class="s4">{</span>
+        <span class="s1">attribution: </span><span class="s8">'Map data &amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;'</span><span class="s7">,</span>
+        <span class="s1">maxZoom: </span><span class="s6">18</span><span class="s7">,</span>
+        <span class="s1">id: </span><span class="s8">'mapbox/streets-v11'</span><span class="s7">,</span>
+        <span class="s1">tileSize: </span><span class="s6">512</span><span class="s7">,</span>
+        <span class="s1">zoomOffset: -</span><span class="s6">1</span><span class="s7">,</span>
+        <span class="s1">accessToken: </span><span class="s8">&quot;pk.eyJ1Ijoic2Fsb21lLWNvZGVyIiwiYSI6ImNraThrcTdtMTA2cmIycm85MHhnM3Z3c2EifQ.OMtLCqzcjHja0U14Fqqghg&quot;</span>
+    <span class="s4">}).addTo(mymap)</span><span class="s7">;</span>
+    <span class="s7">for </span><span class="s4">(</span><span class="s7">let </span><span class="s1">i=</span><span class="s6">0</span><span class="s7">; </span><span class="s1">i&lt;Markers.length</span><span class="s7">; </span><span class="s1">i++) {</span>
+        <span class="s1">Markers[i].marker=L.marker( [Markers[i].lat</span><span class="s7">, </span><span class="s1">Markers [i].lng]).addTo(mymap)</span><span class="s7">;</span>
+        <span class="s1">Markers[i].marker.bindPopup(Markers[i].title)</span><span class="s7">;</span>
+    <span class="s4">}</span>
+<span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
